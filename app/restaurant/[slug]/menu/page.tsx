@@ -19,7 +19,6 @@ const fetchRestaurantMenu = async (slug: string) => {
 
 export default async function RestaurantMenu({params}: {params: {slug: string}}) {
   const menu = await fetchRestaurantMenu(params.slug)
-  console.log({menu})
   return (
     <>
       <div className="bg-white w-[100%] rounded p-3 shadow">

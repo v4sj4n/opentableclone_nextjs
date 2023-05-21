@@ -1,11 +1,16 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
+import { PrismaClient } from "@prisma/client"
 
 export default function SearchBar() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [location, setLocation] = useState('')
+
+  const search = searchParams.get('city')
+
   return (
     <div className="text-left text-lg py-3 m-auto flex justify-center">
     <input
@@ -19,7 +24,8 @@ export default function SearchBar() {
       className="rounded bg-red-600 px-9 py-2 text-white"
       onClick={() => {
         if (location === 'banana') return
-        router.push('/search')
+        router.push(`/search/?city=${location}`)
+        setLocation("")
       }}
     >
       Let's go
