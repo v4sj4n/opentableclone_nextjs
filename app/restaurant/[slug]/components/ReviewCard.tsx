@@ -14,7 +14,7 @@ export default function ReviewCard({ review }: { review: Review }) {
         <div className="ml-10 w-5/6">
           <div className="flex items-center">
             <Stars rating={review.rating} reviews={[]} />
-          </div>
+          </div>  
           <div className="mt-5">
             <p className="text-lg font-light">
               {review.text}
